@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+
+{% block content %}
+<body style="background-color:#ECEFF1;">
+    <div class="container">
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <button style="color:white; background-color:black;" class="btn" type="submit">Register</button>
+                <br>
+            </form>
+            <br>
+            If already registered, <a href="/login"><strong>Login</strong></a> instead.
+            <br>
+    </div>
+</body>
+<br>
+<br>
+{% endblock %}
+
+
+
+
+</html>

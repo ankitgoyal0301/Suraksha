@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+    {% block content %}
+
+    <body style="background-color:#ECEFF1;">
+        <div class="container">
+
+
+        <script src="https://apis.mapmyindia.com/advancedmaps/v1/oehzgx54nik3ur7upodu32splbu6gxw5/map_load?v=1.5"></script>
+        <style>
+            #map {	margin: 0;	padding: 0;width: 100%;height: 1000px;}
+        </style>
+
+        <br>
+            <br>
+        <h5><strong>Click the button to get your coordinates.</strong></h5>
+
+        <button class="btn btn-outline-info" id="find-me" onclick="getLocation()" style="color:white; background-color:black;">Get Location</button>
+
+        <p id="demo"></p>
+
+        <div id="map"></div>
+
+            <br><br>
+
+        <script>
+            var x = document.getElementById("demo");
+
+            var lat = 30;
+            var long = 78;
+            var icon = L.divIcon({
+                 className: 'my-div-icon',
+                 html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" ,
+                 iconSize: [10, 10],
+                 popupAnchor: [12, -10]
+            });/*function that creates a div over a icon and display content on the div*/
+
+            var apikey = 'd25ac72e7a1e43b8a2d3c939895889d1';
+            var api_url = 'https://api.opencagedata.com/geocode/v1/json'
+
+
+
+            function showPosition(position) {
+                x.innerHTML="<hr>Your Latitude: " + position.coords.latitude +
+                "<br>Your Longitude: " + position.coords.longitude;
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+
+                var latitude = lat;
+                var longitude = long;
+                var title = "Your Location is -> ";
+                var request_url = api_url
+                    + '?'
+                    + 'key=' + apikey
+                    + '&q=' + encodeURIComponent(latitude + ',' + longitude)
+                    + '&pretty=1'
+                    + '&no_annotations=1';
+
+                var request = new XMLHttpRequest();
+                request.open('GET', request_url, true);
+
+                request.onload = function() {
+                // see full list of possible response codes:
+                // https://opencagedata.com/api#codes
+
+                if (request.status == 200){
+                  // Success!
+                  var data = JSON.parse(request.responseText);
+
+                  title+=data.results[0].formatted;
+
+                  var map=new MapmyIndia.Map("map",{ center:[lat, long], zoomControl: true, hybrid:true, search:true, location:true});
+                  var position = new L.LatLng(lat, long);/*The WGS location object*/
+                  var mk = new L.Marker(position, {icon: icon, title: title});/*marker with a custom icon */
+                  mk.bindPopup(title);
+                  map.addLayer(mk);
+
+                } else if (request.status <= 500){
+                  // We reached our target server, but it returned an error
+
+                  console.log("unable to geocode! Response code: " + request.status);
+                  var data = JSON.parse(request.responseText);
+                  console.log(data.status.message);
+                } else {
+                  console.log("server error");
+                }
+                };
+
+                request.onerror = function() {
+                    // There was a connection error of some sort
+                    console.log("unable to connect to server");
+                };
+
+                request.send();  // make the request
+
+
+            }
+
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+              } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            }
+
+
+        </script>
+        </div>
+    </body>
+
+    {% endblock %}
+
+
+
+</html>

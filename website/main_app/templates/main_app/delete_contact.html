@@ -1,0 +1,34 @@
+{%  extends 'main_app/common.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color:#white;">
+<br><br>
+
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card card-body" style="background-color:#ECEFF1;">
+
+
+					<p>Are you sure you want to delete this contact? "{{item}}"?</p>
+
+					<form action="{% url 'main_app:delete_contact' item.id  %}" method="POST">
+
+						{% csrf_token %}
+						<a style="color:white; background-color:black;" class="btn btn-warning" href="{% url 'main_app:emergency_contact' %}">Cancel</a>
+
+						<input style="color:white; background-color:black;" class="btn btn-danger" type="submit" name="Yes">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br>
+
+{% endblock %}

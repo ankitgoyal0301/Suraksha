@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <link rel="icon" href="http://mapmyindia.com/images/favicon.ico" type="image/x-icon">
+            <style type="text/css">
+                 #map {
+                    left: 2px; top: 1px;
+                    right: 2px; bottom: 2px;
+                    margin-top:20px;
+                    margin-right:20px;
+                    margin-left:20px;
+                    padding-right:20px;
+                    height:1000px;
+                    max-width:75%;
+                    }
+                #result {
+                    left: 2px; top: 46px;
+                    width: 306px;
+                    bottom: 2px;
+                    background-color:#ECEFF1;
+                    overflow: auto;
+                    margin-top:20px;
+                    margin-right:20px;
+                    margin-left:20px;
+                    height:10%;
+                    width:10%;
+                    }
+                 button{width: 220px;font-family:Verdana,sans-serif, Arial;font-size:12px;padding:2px 0;color:#333}
+            </style>
+            <!--put your map api javascript url with key here-->
+            <script src="https://apis.mapmyindia.com/advancedmaps/v1/oehzgx54nik3ur7upodu32splbu6gxw5/map_load?v=1.5"></script>
+
+    </head>
+
+    <body style="background-color:#ECEFF1;">
+        <nav class="navbar navbar-expand-lg" style="background-color:black; height:100px; padding:None;" >
+            <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
+            <script>
+                $(document).ready(function(){
+                    $('.materialboxed').materialbox();
+                });
+
+            </script>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home"><h5>Home</h5></a>
+              </li>
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'><h5>☰ Maps </h5></a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
+                <li><a style="color: #000000;" href="/corona_updates" class="tooltipped" data-position="right" data-tooltip="Get Latest Corona Updates">Corona Updates</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/city_map" class="tooltipped" data-position="right" data-tooltip="Search In City Map">Find in city</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/find_me" class="tooltipped" data-position="right" data-tooltip="Get Your Current Location">Find Me!</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'><h5>☰ Women </h5></a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1; ">
+                <li><a style="color: #000000;" href="/women_rights" class="tooltipped" data-position="right" data-tooltip="Women Legal Rights In India">Women Rights</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/women_laws" class="tooltipped" data-position="right" data-tooltip="Laws For Women">Women Laws </a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/helpline_numbers" class="tooltipped" data-position="right" data-tooltip="Get To Nearest Helpline">Women Helpline Numbers</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/news" class="tooltipped" data-position="right" data-tooltip="See Women Issues">Quick Glance</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+
+
+
+              <li class="nav-item">
+                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact"><h5>Emergency Contacts</h5></a>
+              </li>
+            </ul>
+
+            <ul>
+              {% if user.is_authenticated %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h5>{{user.username}}</h5></a>
+                  </li>
+                <ul id='dropdown3' class='dropdown-content' style="background-color: #f1f1f1;">
+                    <li><a style="color: #000000;" href="/logout" class="tooltipped" data-position="left" data-tooltip="Good Bye">Logout</a></li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% else %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" data-position="left" data-tooltip="Welcome, To Suraksha" style="color:white;" href="#" data-target="dropdown4" data-position="left" data-tooltip="User login/register"><h5> User</h5></a>
+                  </li>
+                <ul id='dropdown4' class='dropdown-content' style="background-color: #f1f1f1;">
+                  <li class="nav-item">
+                    <a style="color: #000000;" class="tooltipped" data-position="left" data-tooltip="Register New Account" href="/register">Register</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li class="nav-item">
+                    <a style="color: #000000;"  href="/login" class="tooltipped" data-position="left" data-tooltip="Login to Account">Login</a>
+                  </li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% endif %}
+              <li><a class="nav-link tooltipped nav-item" data-position="left" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency"><h5><strong>EMERGENCY !!</strong></h5></a></li>
+
+            </ul>
+             <script>
+                $(document).ready(function(){
+                    $('.tooltipped').tooltip();
+                  });
+            </script>
+          </div>
+        </nav>
+
+        <br>
+
+        {% if messages %}
+            {% for message in messages %}
+                <script>M.toast({html: "{{message}}", classes: 'blue rounded',
+                displayLength:4000});</script>
+            {% endfor %}
+        {% endif %}
+
+
+            <br>
+            <script>
+                var icon = L.divIcon({
+                     className: 'my-div-icon',
+                     html: "<img class='map_marker'  src=" + "'https://maps.mapmyindia.com/images/2.png'>" ,
+                     iconSize: [10, 10],
+                     popupAnchor: [12, -10]
+                });/*function that creates a div over a icon and display content on the div*/
+                var title = "City Center!";
+
+                var map = null;
+
+                window.onload = function() {
+
+                    var centre = new L.LatLng(30.7333, 76.7794);
+                    map=new MapmyIndia.Map('map',{center:centre,zoomControl: true,hybrid:true });
+                        /*1.create a MapmyIndia Map by simply calling new MapmyIndia.Map() and passsing it at the minimum div object, all others are optional...
+                        2.all leaflet mapping functions can be called simply on the L object
+                        3.MapmyIndia may extend and in future modify the customised/forked Leaflet object to enhance mapping functionality for developers, which will be clearly documented in the MapmyIndia API documentation section.*/
+                    var position = new L.LatLng(30.7333, 76.7794);/*The WGS location object*/
+                    var mk = new L.Marker(position, {icon: icon, title: title});/*marker with a custom icon */
+                    mk.bindPopup(title);
+                    map.addLayer(mk);
+
+                    var event_div = document.getElementById("event-log");
+                    /***map-events****/
+                    map.on("dblclick", function(e) {
+                        var pt = e.latlng;/*event returns lat lng of clicked point*/
+                       event_div.innerHTML= "dbclick:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>" + event_div.innerHTML;
+                    });
+                    map.on("click", function(e) {
+                        var pt = e.latlng;/*event returns lat lng of clicked point*/
+                       event_div.innerHTML= "click:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>" + event_div.innerHTML;
+                    });
+                    map.on("resize", function(e) {
+                        event_div.innerHTML="map resized</br>" + event_div.innerHTML;
+                    });
+                    map.on("mouseup", function(e) {
+                        var pt = e.latlng;/*event returns lat lng of current point*/
+                        event_div.innerHTML = "mouseup:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>" + event_div.innerHTML;
+                    });
+                    map.on("mousedown", function(e) {
+                        var pt = e.latlng;/*event returns lat lng of current point*/
+                        event_div.innerHTML = "mousedown:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>" + event_div.innerHTML;
+                    });
+                };
+
+                function mapmyindia_current_zoom_level() {
+                    var zoom = map.getZoom();/*returns the current zoom level*/
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Current zoom level:" + zoom + "</br>"+event_div.innerHTML;
+                }
+                function mapmyindia_current_center_location() {
+                    var pt = map.getCenter();/*returns the center of map*/
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Current Center:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>"+event_div.innerHTML;
+                }
+                function mapmyindia_current_bound() {
+                    var bounds = map.getBounds();/*Returns the rectangle in WGS coordinates that is currently displayed in the containing HTML element i.e Map.*/
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "current bound:</br> north east lat:" + bounds.getNorthEast().lat + "</br> north east lng:" + bounds.getNorthEast().lng + "</br>south west lat:" + bounds.getSouthWest().lat + "</br>south west lng:" + bounds.getSouthWest().lng + "</br>"+event_div.innerHTML;
+                }
+                function mapmyindia_map_pan() {
+                   var pt=new L.LatLng(30.7333, 76.7794);
+                   var event_div = document.getElementById("event-log");
+                   event_div.innerHTML='';
+                   event_div.innerHTML= "Map pan to:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>"+event_div.innerHTML;
+                   map.panTo(pt);/*Pans the map to a given lat long */
+                }
+                function mapmyindia_set_center_and_zoom_level() {
+                    var pt = new L.LatLng(30.7333, 76.7794);/*WGS location object*/
+                    map.setView(pt, 8);/*function that modifies both center map position and zoom leveL.*/
+                }
+                function mapmyindia_move_to_center() {
+                    var pt = new L.LatLng(30.7333, 76.7794);/*WGS location object*/
+                    map.setView(pt);/* new map position to be in the middle of the HTML element where map is drawn.*/
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Map pan to:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>"+event_div.innerHTML;
+                }
+                function mapmyindia_zoom_in() {
+                    if(map.getZoom()<19)
+                    {
+                    map.zoomIn();/*Zooms in one zoom step, unless current zoom level is the minimal zoom level. */
+                    var zoom=map.getZoom();/*zoom must be number that is set as new zoom level between 4 and 19*/
+                    zoom = zoom + 1;
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Zoom level set to: "+ zoom +event_div.innerHTML;
+                    }
+                }
+                function mapmyindia_zoom_out() {
+                    if(map.getZoom()>4)
+                    {
+                    map.zoomOut();/*Zooms out one zoom step, unless current zoom level is the maximal zoom level. */
+                    var zoom=map.getZoom();/*zoom must be number that is set as new zoom level between 4 and 19*/
+                    zoom = zoom - 1;
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Zoom level set to: "+ zoom +event_div.innerHTML;
+                    }
+                }
+                function mapmyindia_set_zoom() {
+                    var zoom=14;
+                    map.setZoom(zoom);/*zoom must be number that is set as new zoom level between 4 and 19*/
+                    var event_div = document.getElementById("event-log");
+                    event_div.innerHTML='';
+                    event_div.innerHTML= "Zoom level set to: "+ zoom +event_div.innerHTML;
+                }
+            </script>
+
+        <div style="max-width:98%">
+            <div class="container" style="height:100%;, max-width:90%; display: table-row">
+            <div id="result" style="display: table-cell;">
+            <div style="padding: 16px 12px 6px 38px"><button onclick="mapmyindia_current_zoom_level()" style="width: 220px;">Get current zoom level</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_current_center_location()" style="width: 220px;">Get current map center</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_current_bound()" style="width: 220px;">Get current map bound</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_map_pan()" style="width: 220px;">Map pan</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_move_to_center()" style="width: 220px;">Move to center</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_set_zoom()" style="width: 220px;">Set zoom level</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_set_center_and_zoom_level()" style="width: 220px;">Set center and zoom level</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_zoom_in()" style="width: 220px;">Zoom in</button></div>
+                <div style="padding: 6px 12px 6px 38px;"><button onclick="mapmyindia_zoom_out()" style="width: 220px;">Zoom out</button></div>
+                <div style="padding:6px 12px 1px; border-bottom:1px solid #e9e9e9"><ul style=" line-height: 20px; font-size: 12px; color: #555">
+                        <li>Click anywhere on the map</li>
+                        <li>Double click anywhere on the map </li>
+                        <li>Mouse up on the map anywhere </li>
+                        <li>Mouse down on the map anywhere</li>
+                        <li>Change the zoom level or pan the map</li>
+                    </ul></div>
+                <div style="padding:14px 12px 6px 38px;color: #666;">Event Logs</div>
+                <div style="padding:6px 12px 6px 38px;color: #777; font-size: 12px; line-height: 22px;" id="event-log"></div>
+            </div>
+            <div id="map" style="display: table-cell; max-width:90%;"></div>
+            </div>
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+        <footer class="page-footer" style="background-color:black;">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h4 class="white-text">Our Aim</h4>
+                <p class="grey-text text-lighten-4"><h4>Towards a better and safer India.</h4></p>
+                <div >2020 © Copyright</div>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <ul>
+                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Home" href="/home"><i class="material-icons small">home</i></a></li>
+                  <li><a class="waves-effect tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers"><h4>Developers</h4></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+          </div>
+        </footer>
+
+
+    </body>
+</html>

@@ -1,0 +1,57 @@
+{%  extends 'main_app/common.html' %}
+
+{% block content %}
+
+<body style="background-color:white;">
+	<br>
+	<div class="jumbotron jumbotron-fluid container">
+	  <div>
+		<h1 class="display-4" style="margin-left:2%;">Emergency Contacts</h1>
+		<p class="lead" style="margin-left:2%;">Save your trusted contacts, in emergency situation your emergency contacts are just one button-press away.</p>
+	  </div>
+	</div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-7">
+				<h6>Total Saved Contacts: {{total_contacts}}</h6>
+				<hr><br>
+
+					<a style="color:white; background-color:black;" class="btn btn-primary  btn-sm btn-block" href="{% url 'main_app:create_contact' %}">Create Contact</a>
+					<br>
+					<table class="table">
+						<thead class="thead"  style="color:black; background-color:#E9ECEF;">
+							<tr>
+								<th>Name</th>
+								<th>Phone</th>
+								<th>Relation</th>
+								<th>Email</th>
+								<th>Update</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+
+						{% for contact in contacts.all %}
+							<tbody class="table-striped">
+								<tr>
+									<td>{{contact.name}}</td>
+									<td>{{contact.phone}}</td>
+									<td>{{contact.relation}}</td>
+									<td>{{contact.email}}</td>
+									<td><a style="color:white; background-color:black;" class="btn btn-sm btn-info" href="{% url 'main_app:update_contact' contact.id %}">Update</a></td>
+									<td><a style="color:white; background-color:black;" class="btn btn-sm btn-danger" href="{% url 'main_app:delete_contact' contact.id %}">Delete</a></td>
+								</tr>
+							</tbody>
+							<br>
+						{% endfor %}
+
+					</table>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+<br><br><br>
+
+{% endblock %}

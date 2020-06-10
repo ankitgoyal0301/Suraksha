@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "main_app/common.html" %}
+{% load static %}
+
+<html lang="en">
+    {% block content %}
+
+    <body style="background-color:white;">
+`   <br>
+    <div class="jumbotron jumbotron-fluid container">
+      <div class="container">
+        <h1 class="display-4">Track Live Corona Updates!!</h1>
+        <hr><hr>
+          <p class="lead">“Hope is a renewable option: If you run out of it at the end of the day, you get to start over in the morning.”
+            - Barbara Kingsolver, Novelist</p>
+          <p class="lead">Map Credits: Mapmyindia</p>
+      </div>
+    </div>
+    <div class="container">
+        <br>
+        <iframe height="1000" width="100%" src="https://maps.mapmyindia.com/corona"></iframe>
+
+    </div>
+    <br>
+    <br>
+    </body>
+
+    {% endblock %}
+
+
+
+</html>

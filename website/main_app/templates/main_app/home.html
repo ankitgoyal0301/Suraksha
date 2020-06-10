@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+        <style>
+            .mySlides {display:none;}
+            .parallax-container {
+                height: 650px;
+            }
+
+        </style>
+    </head>
+    <body style="padding:0px; margin:0px; background-color:#eceff1;">
+        <nav class="navbar navbar-expand-lg transparent" style="background-color:#343A40; height:100px; padding:None; position:absolute;" >
+            <img class="materialboxed" style="margin:10px" height="70" width="70" src="{% static 'Images/Logo.png' %}">
+            <script>
+                $(document).ready(function(){
+                    $('.materialboxed').materialbox();
+                });
+
+            </script>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="nav-link tooltipped" data-position="right" data-tooltip="Move To Home" href="/home"><h3>Home</h3></a>
+              </li>
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Find In Maps" href='#' data-target='dropdown1'><h3>☰ Maps </h3></a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content' style="background-color: #f1f1f1;">
+                <li><a style="color: #000000;" href="/corona_updates" class="tooltipped" data-position="right" data-tooltip="Get Latest Corona Updates">Corona Updates</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/city_map" class="tooltipped" data-position="right" data-tooltip="Search In City Map">Find in city</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/find_me" class="tooltipped" data-position="right" data-tooltip="Get Your Current Location">Find Me!</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+
+               <!-- Dropdown Trigger -->
+              <li class="nav-item" style="padding-left:10px">
+                  <a class="dropdown-trigger nav-link tooltipped" data-position="right" data-tooltip="Get Women Related Info" href='#' data-target='dropdown2'><h3>☰ Women </h3></a>
+              </li>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown2' class='dropdown-content' style="background-color: #f1f1f1; ">
+                <li><a style="color: #000000;" href="/women_rights" class="tooltipped" data-position="right" data-tooltip="Women Legal Rights In India">Women Rights</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/women_laws" class="tooltipped" data-position="right" data-tooltip="Laws For Women">Women Laws </a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/helpline_numbers" class="tooltipped" data-position="right" data-tooltip="Get To Nearest Helpline">Women Helpline Numbers</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a style="color: #000000;" href="/news" class="tooltipped" data-position="right" data-tooltip="See Women Issues">Quick Glance</a></li>
+              </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+
+
+
+              <li class="nav-item">
+                <a class="nav-link tooltipped" data-position="right" data-tooltip="See Emergency Contacts" href="/emergency_contact"><h3>Emergency Contacts</h3></a>
+              </li>
+            </ul>
+
+            <ul>
+              {% if user.is_authenticated %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" style="color:white;" href="#" data-target="dropdown3" data-position="left" data-tooltip="Hello, {{user.username}}"><h3>{{user.username}}</h3></a>
+                  </li>
+                <ul id='dropdown3' class='dropdown-content' style="background-color: #f1f1f1;">
+                    <li><a style="color: #000000;" href="/logout" class="tooltipped" data-position="left" data-tooltip="Good Bye">Logout</a></li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% else %}
+                  <li>
+                      <a class="nav-link nav-item dropdown-trigger tooltipped navbar-nav mr-auto" data-position="left" data-tooltip="Welcome, To Suraksha" style="color:white;" href="#" data-target="dropdown4" data-position="left" data-tooltip="User login/register"><h3> User</h3></a>
+                  </li>
+                <ul id='dropdown4' class='dropdown-content' style="background-color: #f1f1f1;">
+                  <li class="nav-item">
+                    <a style="color: #000000;" class="tooltipped" data-position="left" data-tooltip="Register New Account" href="/register">Register</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li class="nav-item">
+                    <a style="color: #000000;"  href="/login" class="tooltipped" data-position="left" data-tooltip="Login to Account">Login</a>
+                  </li>
+                </ul>
+              <script>
+                  $('.dropdown-trigger').dropdown({
+                      coverTrigger:false
+                  });
+              </script>
+              {% endif %}
+              <li><a class="nav-link tooltipped nav-item" data-position="left" data-tooltip="Click only in emergency situation. It will send help message to your emergency contacts." href="/emergency"><h3><strong>EMERGENCY !!</strong></h3></a></li>
+
+            </ul>
+             <script>
+                $(document).ready(function(){
+                    $('.tooltipped').tooltip();
+                  });
+            </script>
+          </div>
+        </nav>
+
+        {% if messages %}
+            {% for message in messages %}
+                <script>M.toast({html: "{{message}}", classes: 'blue rounded',
+                displayLength:4000});</script>
+            {% endfor %}
+        {% endif %}
+    <div>
+        <div><img height="700" width="100%" src="{% static 'Images/crimes-against-women.jpg' %}"></div>
+    </div>
+
+    <div style="text-align:center; max-width:100%; background-color:black; color:white;">
+    <div style="text-align:center; max-width:80%; background-color:black; color:white;" class="container">
+            <marquee width="100%" direction="left" height="30%" style="font-family: Times, "Times New Roman", serif;">
+                <h3><i>”Every girl and every woman, has the potential to make this world a better place, and that potential lies in the act
+                    of thinking higher thoughts and feeling deeper things. When women and girls, everywhere, begin to see themselves as
+                    more than inanimate objects; but as beautiful beings capable of deep feelings and high thoughts, this has the capacity
+                    to create change all around. The kind of change that is for the better.”-C. JoyBell C. </i></h3>
+            </marquee>
+    </div>
+    </div>
+
+
+    <div style="text-align:center; margin-top:20px; max-width:60%; margin-left:auto; margin-right:auto; display:block; font-family:Serif;">
+    <ul class="collapsible">
+        <li style="">
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; India ranked poor for women safety.</span></h2></div>
+          <div class="collapsible-body" ><h3 style="text-align:left;">The Georgetown Institute for Women, Peace and Security(GIWPS), America in collaboration
+              with The Peace Research Institute of Oslo (PRIO), Norway, released its 2nd edition of the report titled Women, Peace, and
+              Security (WPS) Index for the year 2019. India was ranked 133rd out of 167 countries.</h3></div>
+        </li>
+        <li>
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; A rape in India every 15 minutes.</span></h2></div>
+          <div class="collapsible-body"><h3 style="text-align:left;">In India, a rape is reported every 15 minutes, according to recently released official
+              government crime data. The National Crime Records Bureau (NCRB) data from 2018 has stark revelations about crime in the
+              country. In almost 94 per cent of the cases, the offenders were known to the victims - family members, friends, live-in
+              partners, employers or others, the data showed.</h3></div>
+        </li>
+        <li>
+          <div class="collapsible-header" style="text-align:left; height:80px; margin-left:auto; margin-right:auto; display:block;">
+              <h2> ≡ <span style="font-family:Serif;"> &nbsp; 99% of voilence faced by women go unnoticed.</span></h2></div>
+          <div class="collapsible-body"><h3 style="text-align:left;">According to, National Family Health Survey (NFHS) average Indian woman is 17 times more
+              likely to face sexual violence from her husband than from others. Only 3.5% of victims of violence reported seeking the
+              help of police. In states such as Bihar, Uttar Pradesh and Jharkhand, less than 0.5% of incidents of violence against women
+              were reported. Tamil Nadu and Karnataka also saw very low reporting of such crimes despite a higher female literacy rate.</h3></div>
+        </li>
+    </ul>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+          });
+    </script>
+
+
+    <div class="w3-content w3-section" style="max-width:100%" style="margin-left: auto;
+  margin-right: auto; display:bloack;">
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/ada.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/kalpana.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/mother_teresa.jpg' %}"></div>
+          <div><img height="700" width="100%" class="mySlides" src="{% static 'Images/slideshow/madam_curie.jpg' %}"></div>
+    </div>
+
+
+    <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex-1].style.display = "block";  
+      setTimeout(showDivs, 3000);
+    }
+    </script>
+
+    <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 3000); // Change image every 5 seconds
+    }
+    </script>
+
+        <footer class="page-footer" style="background-color:black;">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h3 class="white-text">Our Aim</h3>
+                <p class="grey-text text-lighten-4"><h3>Towards a better and safer India.</h3></p>
+                <div >2020 © Copyright</div>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <ul>
+                  <li><a class="white-text tooltipped" data-position="right" data-tooltip="Back To Top" href="/home"><i class="material-icons medium">home</i></a></li>
+                  <li><a class="waves-effect tooltipped" data-position="right" data-tooltip="Visit Developers Page" href="/developers"><h3>Developers</h3></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+          </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,217 @@
+
+                    <!DOCTYPE html>
+                    {% extends 'main_app/common.html' %}
+                    {% load static %}    
+                
+                    {% block content %} 
+                    <br>
+                    <body>
+                    <div style="max-width:80%; margin-left:auto; margin-right:auto; display:block;" >
+                    <div class="jumbotron">
+                      <h1 class="display-4">Latest news!!</h1>
+                      <p class="lead">News and issues of women should no longer go unnoticed, know the real issues.</p>
+                      <hr class="my-4">
+                      <p class="lead">
+                        <a style="color:white; background-color:black;" class="btn btn-primary btn-lg tooltipped" href="{% url 'main_app:news' %}" role="button"  data-position="right" data-tooltip="Refresh for latest news">Refresh</a>
+                      </p>
+                    </div>
+                    <style>.card { width:400px; height:400px;} </style>
+                       <div class="row" style="margin-left:8%;">   <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/1.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">8.78% unemployment estimate for 2018-19 conservative compared to PLFS: CMIE<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/economy/indicators/8-78-unemployment-estimate-for-2018-19-conservative-compared-plfs-cmie/articleshow/76279796.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 08:45AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Explaining the rationale behind this, Mahesh Vyas of CMIE said, the current weekly status is more relevant as a whole as it has less recall and less computation problems. “Hence, it makes more sense than the usual status which in the case of PLFS is nearly a lag of two years,” he added.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/2.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Centre to link 50 lakh artisans, weavers to GeM portal: Smriti Irani<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/industry/services/retail/centre-to-link-50-lakh-artisans-weavers-to-gem-portal-smriti-irani/articleshow/76284426.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 12:43PM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">The Minister of Textiles and Women and Child Development was addressing members from the Ficci Ladies Organisation through a virtual platform.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/3.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">War of words: US prosecutors say Prince Andrew not co-operating in Epstein probe<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/magazines/panache/war-of-words-us-prosecutors-say-prince-andrew-not-co-operating-in-epstein-probe/articleshow/76280297.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 09:25AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">US prosecutors and attorneys for the royal sniped at one another across the Atlantic.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/4.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Tinder is supporting women-led businesses in India with free in-app inventory: Meet MindPeers & Stack Finance and the inspiring women behind them<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/small-biz/startups/newsbuzz/tinder-is-supporting-women-led-businesses-in-india-with-free-in-app-inventory-meet-mindpeers-stack-finance-and-the-inspiring-women-behind-them/articleshow/76217410.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">05 Jun, 2020, 11:59AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">From making mental health services more accessible to promoting financial planning to the young workforce, here’s how Kanika Agarwal (MindPeers) & Smriti Tomar (Stack Finance) are transforming their industries.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/5.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Women leaders, influencers on skills and mindsets in a post-Covid world<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/company/corporate-trends/women-leaders-influencers-on-skills-and-mindsets-in-a-post-covid-world/articleshow/76189400.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">04 Jun, 2020, 08:35AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Interviews were conducted with women leaders and influencers, across corporates, SME organizations, as well as in education and the arts. Their responses all point in one unambiguous direction: that a new set of behavioural skills is needed for making the journey from survival to sustainability, in a post-COVID Indian ecosystem.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/6.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Final instalment of Rs 500 to women Jan Dhan account holders from Friday: FinMin<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/economy/policy/final-instalment-of-rs-500-to-women-jan-dhan-account-holders-from-friday-finmin/articleshow/76198794.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">04 Jun, 2020, 02:19PM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Beneficiaries are requested to follow the schedule to visit banks and CSPs and money can also be withdrawn via ATMs and BCs, the Financial Services Department under the Finance Ministry informed through a video message.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/7.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Temples, malls in Telangana reopen after prolonged lockdown<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/politics-and-nation/temples-malls-in-telangana-reopen-after-prolonged-lockdown/articleshow/76259351.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">08 Jun, 2020, 09:38AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Famous shrines, including theLord Venkateswra temple in Hyderabad, Sri Rama temple at Bhadrachalam and Sri Lakshmi Narasimha Swamy temple at Yadadri were among those which reopened. The devotees were allowed entry only after thermal screening and mandatory wearing of face masks.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/8.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Kashmir stares at infrastructure crisis with 1,000 cases in 72 hours<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/politics-and-nation/kashmir-stares-at-infrastructure-crisis-with-1000-cases-in-72-hours/articleshow/76290892.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 06:12PM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">J&K has reported 4,346 positive cases out of which 3,400 were reported from Kashmir while 930 were from Jammu. As many as 48 patients have died,including 43 from Kashmir and five from Jammu, while 1,506 people have recovered.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/9.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Daniel Radcliffe reacts to JK Rowling's tweet backlash, says he is 'deeply sorry' for the pain caused by her comments<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/magazines/panache/daniel-radcliffe-reacts-to-jk-rowlings-tweet-backlash-says-he-is-deeply-sorry-for-the-pain-caused-by-her-comments/articleshow/76277476.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 06:30AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">In her tweets, Rowling had said if sex isn't real, there's no same-sex attraction.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/10.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Mind the gap: Affordable internet vital for coronavirus recovery<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/tech/internet/mind-the-gap-affordable-internet-vital-for-coronavirus-recovery/articleshow/76280805.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 09:47AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">By the end of 2018, about half of the world was connected to the internet, according to the Alliance for Affordable Internet (A4AI). This means about 4 billion people are still offline.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/11.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Mutual admiration club: Hina Khan calls Smriti Irani her ‘only favourite actress’, Amethi MP says she looks forward to meeting the TV star<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/magazines/panache/mutual-admiration-club-hina-khan-calls-smriti-irani-her-only-favourite-actress-amethi-mp-says-she-looks-forward-to-meeting-the-tv-star/articleshow/76277115.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 06:27AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Both shared some love and nostalgia on Instagram recently.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/12.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Coronavirus frustrates Saudi women's push for financial independence<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/news/international/world-news/coronavirus-frustrates-saudi-womens-push-for-financial-independence/articleshow/76190443.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">04 Jun, 2020, 06:22AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Women in the United States and Europe have taken an outsized hit from the wave of unemployment caused by the coronavirus, but for women in Saudi Arabia the downturn is particularly damaging because it struck just as their efforts to enter the workforce and gain greater financial independence were gaining traction.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/13.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">The doctor will see you now – virtually<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/small-biz/startups/features/the-doctor-will-see-you-now-virtually-telemedicine/primeshow/76275418.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">09 Jun, 2020, 07:13AM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Bringing relief to patients seeking doctors’ visit amidst a pandemic, telemedicine startups are not only offering easy online consultations, but also filling the affordability and accessibility gap of the healthcare industry in India.</p></span>
+                        </div>
+                     </div>  <div class="card" style="margin-left:20px">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img height="200" class="activator" src="{% static 'Pics/14.jpg' %}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">1954 novel that Simone de Beauvoir had abandoned to be published as 'The Inseparables'<i class="material-icons right">more_vert</i></span>
+                            <p><a style="color:white; background-color:black;" class="waves-effect waves-light btn" target="_blank" href="  https://economictimes.indiatimes.com/magazines/panache/1954-novel-that-simone-de-beauvoir-had-abandoned-to-be-published-as-the-inseparables/articleshow/76258894.cms  ">See More</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">08 Jun, 2020, 02:22PM IST
+												
+                          <i class="material-icons right">close</i>
+                          <p class="activator">Beauvoir started writing the novel in 1954, five years after publishing 'The Second Sex'.</p></span>
+                        </div>
+                     </div> </div></div>
+                    </body>
+                        {% endblock %} 
